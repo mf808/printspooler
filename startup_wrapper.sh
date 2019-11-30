@@ -7,6 +7,6 @@ set -m
 /usr/sbin/cupsd -f &
 
 # start iwatch to mopnitor direcotry
-iwatch -c "lp %f; sleep 5;rm %f" -e close_write -X ".zxy" /volume1/PrintSpooler &
+iwatch -c "lp %f; sleep 5;rm %f" -e close_write -X ".zxy" /underwatch &
 
 fg %1

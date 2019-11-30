@@ -1,7 +1,8 @@
-ARG BASE_USER
-ARG MAINTAINER
 FROM i386/debian:latest
-MAINTAINER $MAINTAINER
+LABEL maintainer="marcusfischer808@gmail.com"
+
+ARG BUILD_DATE
+LABEL org.label-schema.build-date=$BUILD_DATE
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN apt-get update \
@@ -45,8 +46,13 @@ RUN mkdir -p /Downloads/xerox/ \
 
 COPY startup_wrapper.sh startup_wrapper.sh
 
+# create folder to watch for incoming files
+RUN mkdir -p /underwatch
+
 # Mount the volumes
-# Volumes must be mounted on the docker run command  ["/volume1/PrintSpooler", "/var/run/dbus"]
+VOLUME ["/underwatch" , "/etc/cups"]
+
+
 
 # Start the wrapper that calls an instance of iwatch
 # this checks if a new document was places in the PrintSpooler directory
