@@ -36,5 +36,5 @@ The second volume parameter contains the CUPS server configuration for your prin
 
 
 ## RUN
-docker run -d -v /volume1/PrintSpooler:/volume1/PrintSpooler/   -v /volumeSATA/satashare/printspooler/cups/:/etc/cups --name printspooler  --net=host printspooler:latest
+docker run -d -v /volume1/PrintSpooler:/volume1/PrintSpooler/   -v /volumeSATA/satashare/printspooler/cups/:/etc/cups --name printspooler  --net=host mf808/printspooler:latest
 
