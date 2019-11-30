@@ -1,9 +1,6 @@
 FROM i386/debian:latest
 LABEL maintainer="marcusfischer808@gmail.com"
 
-ARG BUILD_DATE
-LABEL org.label-schema.build-date=$BUILD_DATE
-
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN apt-get update \
 && apt-get install -y \
@@ -43,6 +40,10 @@ RUN mkdir -p /Downloads/xerox/ \
 && unzip 6000_6010_deb_1.01_20110210.zip \
 && cd /Downloads/xerox/deb_1.01_20110210/ \
 && dpkg -i xerox-phaser*.deb
+
+ARG BUILD_DATE
+LABEL org.label-schema.build-date=$BUILD_DATE
+
 
 COPY startup_wrapper.sh startup_wrapper.sh
 
