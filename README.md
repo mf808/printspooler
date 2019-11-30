@@ -19,8 +19,8 @@ Therefore I used the idea from https://hub.docker.com/r/olbat/cupsd/ which is a 
 ## BUILD
 sudo docker build -t printspooler .
 
-User: printer
-Pass: printer
+User: print
+Pass: print
 
 login to your host  dockerhost:631 and configure your printer.
 
