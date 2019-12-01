@@ -41,6 +41,11 @@ RUN mkdir -p /Downloads/xerox/ \
 && cd /Downloads/xerox/deb_1.01_20110210/ \
 && dpkg -i xerox-phaser*.deb
 
+# Copy CUPS config to seperate folder for initialization of host configuration volume
+RUN mkdir -p /CUPSConfig \
+&& cp -rp /etc/cups/* /CUPSConfig/ 
+
+
 ARG BUILD_DATE
 LABEL org.label-schema.build-date=$BUILD_DATE
 

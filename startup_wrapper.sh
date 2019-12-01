@@ -3,6 +3,9 @@
 # turn on bash's job control
 set -m
 
+# copy cups config files if they do not exist
+cp -rpn /CUPSConfig/* /etc/cups
+
 #start cupsd
 /usr/sbin/cupsd -f &
 
