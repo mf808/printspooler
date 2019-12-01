@@ -1,4 +1,7 @@
-# printspooler
+# printspooler - a CUPS print server image
+
+## Overview
+Docker image including CUPS print server and DELL c1660w (Xerox Phases 6000b) printer drivers (installed from the Debian i386 packages).
 
 ## Use case:
 Most of the network capable document scanners do not do "Scan to Printer".
@@ -19,19 +22,19 @@ Therefore I used the idea from https://hub.docker.com/r/olbat/cupsd/ which is a 
 
 
 ## BUILD
+```bash
 docker build --no-cache=true --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t mf808/printspooler:version .
-
+```
 
 ## RUN
-docker run -d -v path_to_input_of_your_documents_from_scanner:/underwatch   -v path_to_persisted_cups_config:/etc/cups --name printspooler --net=host mf808/printspooler:latest
+```bash
+docker run -d -v path_to_docs:/underwatch   -v path_to_cups_config:/etc/cups --name printspooler --net=host mf808/printspooler
+```
 
 ## Configure printer
-
-Login to your host  dockerhostIP:631 and configure your printer via the GUI.
-
-User: print
-Pass: print
-
+1. Connect to your host dockerhostIP:631 
+2. Configure your printer via the GUI.
+3. (The user/password is `print`/`print`)
 
 Be sure to make your printer the default printer via the GUI.
 
