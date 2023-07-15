@@ -38,4 +38,4 @@ docker run -d -v path_to_docs:/underwatch   -v path_to_cups_config:/etc/cups --n
 
 Be sure to make your printer the default printer via the GUI.
 
-Any file that is dropped in the PrintSpooler directory will be immediatly sent to the printer and then deleted.
+Any file that is dropped in the PrintSpooler directory will be immediatly sent to the printer and then deleted. 
